@@ -5,3 +5,6 @@ services:
       - '5432:5432'
     environment:
       POSTGRES_PASSWORD: dev
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
